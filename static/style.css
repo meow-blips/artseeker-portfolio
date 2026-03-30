@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════════════════════
+   K.R.Rakshitha — Creative Portfolio · Custom Styles
+   (Tailwind handles the majority; this file covers
+    animations, pseudo-element timeline, and nav helpers.)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Wave Canvas ────────────────────────────────────────── */
+#wave-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ── Smooth Scroll ──────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Custom Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: #c9705d55;
+    border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: #c9705d; }
+
+/* ── Nav Links ──────────────────────────────────────────── */
+.nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+}
+.dark .nav-link { color: #9ca3af; }
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c9705d;
+    border-radius: 1px;
+    transition: width 0.3s;
+}
+.nav-link:hover,
+.nav-link.active { color: #111827; }
+.dark .nav-link:hover,
+.dark .nav-link.active { color: #f3f4f6; }
+
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+.nav-link-mobile {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+}
+.dark .nav-link-mobile { color: #9ca3af; }
+.nav-link-mobile:hover,
+.nav-link-mobile.active { color: #c9705d; }
+
+/* ── Timeline ───────────────────────────────────────────── */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        #c9705d 0%,
+        #81b29a 40%,
+        #b8a9c9 70%,
+        #d4956a 100%
+    );
+    border-radius: 1px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid #faf9f6;
+    z-index: 1;
+}
+.dark .timeline-dot {
+    border-color: #0f111a;
+}
+
+.timeline-content {
+    padding-left: 0.5rem;
+}
+
+/* ── Modal Animations ───────────────────────────────────── */
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.modal-fade-in  { animation: modalFadeIn  0.2s ease-out; }
+.modal-slide-up { animation: modalSlideUp 0.3s ease-out; }
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+    background: #c9705d44;
+    color: inherit;
+}
+
+/* ── Focus Ring ─────────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid #c9705d;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ── Skill Chips ────────────────────────────────────────── */
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+}
+.skill-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.skill-chip-code {
+    background: #c9705d12;
+    border: 1px solid #c9705d30;
+    color: #92503f;
+}
+.dark .skill-chip-code {
+    background: #e07a5f15;
+    border-color: #e07a5f30;
+    color: #e8a998;
+}
+
+.skill-chip-creative {
+    background: #81b29a12;
+    border: 1px solid #81b29a30;
+    color: #4a7d66;
+}
+.dark .skill-chip-creative {
+    background: #81b29a15;
+    border-color: #81b29a30;
+    color: #a3c9b7;
+}
+
+/* ── Responsive tweaks ──────────────────────────────────── */
+@media (max-width: 640px) {
+    .timeline { padding-left: 1.5rem; }
+    .timeline-dot { left: -1.5rem; }
+}

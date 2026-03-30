@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+                Browse my collection of drawings, illustrations, and handmade crochet pieces.
+                Click any piece to see details and purchase.
+            </p>
+        </div>
+
+        <!-- React mounts here -->
+        <div id="gallery-root">
+            <div class="text-center py-20 text-gray-400">Loading gallery&hellip;</div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel" data-type="module" src="/static/js/gallery.jsx"></script>
+{% endblock %}

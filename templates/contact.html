@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4">Let's Create Together</h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+                Have a commission idea, a project proposal, or just want to say hi?
+                I'd love to hear from you.
+            </p>
+        </div>
+
+        <!-- Instagram DM — Primary CTA -->
+        <div class="mb-12 p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-400/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-orange-400/20 border border-pink-500/20 dark:border-pink-500/30 text-center">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="instagram" class="w-7 h-7 text-white"></i>
+            </div>
+            <h2 class="font-display text-2xl font-bold mb-2">Message Me on Instagram</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-5 max-w-sm mx-auto text-sm">
+                DM me on Instagram for commissions, questions, or just to chat about art and crochet. I reply within hours!
+            </p>
+            <a href="https://ig.me/m/artseeker13"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 transition-all duration-200">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                DM @artseeker13
+            </a>
+        </div>
+
+        <!-- Compose & Send to Instagram DM -->
+        <div class="mb-12 p-8 rounded-3xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/10">
+            <h2 class="font-display text-xl font-bold mb-1">Compose Your Message</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                Fill in the form below. When you hit send, it'll copy your message and open my Instagram DMs so you can paste it directly.
+            </p>
+
+            <form id="ig-form" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name"
+                               class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus:border-terracotta dark:focus:border-terracotta-light focus:ring-2 focus:ring-terracotta/20 outline-none transition text-gray-900 dark:text-white placeholder-gray-400" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com"
+                               class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus:border-terracotta dark:focus:border-terracotta-light focus:ring-2 focus:ring-terracotta/20 outline-none transition text-gray-900 dark:text-white placeholder-gray-400" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="subject" class="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Subject</label>
+                    <select id="subject" name="subject"
+                            class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#1a1d2e] border border-gray-200 dark:border-white/10 focus:border-terracotta dark:focus:border-terracotta-light focus:ring-2 focus:ring-terracotta/20 outline-none transition text-gray-900 dark:text-white appearance-none" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%239ca3af%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 1rem center;">
+                        <option value="Commission Request">Commission Request</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="General Question">General Question</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                              placeholder="Tell me about your idea..."
+                              class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus:border-terracotta dark:focus:border-terracotta-light focus:ring-2 focus:ring-terracotta/20 outline-none transition text-gray-900 dark:text-white placeholder-gray-400 resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="send-btn"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 transition-all duration-200">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    Copy & Open Instagram DM
+                </button>
+            </form>
+
+            <!-- Success state (hidden by default) -->
+            <div id="form-success" class="hidden mt-6 p-5 rounded-2xl bg-sage/10 dark:bg-sage/20 border border-sage/30">
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-sage"></i>
+                    <h3 class="font-semibold text-sage">Message Copied!</h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Your message has been copied to your clipboard. Paste it in the Instagram DM that just opened.
+                    Didn't open? <a href="https://ig.me/m/artseeker13" target="_blank" class="text-pink-500 hover:underline font-medium">Click here to DM @artseeker13</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Other contact info -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="mailto:rakshithakr31@gmail.com" class="p-5 rounded-2xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/5 hover:border-terracotta/30 transition group text-center">
+                <div class="w-10 h-10 rounded-xl bg-terracotta/10 dark:bg-terracotta/20 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="mail" class="w-5 h-5 text-terracotta dark:text-terracotta-light"></i>
+                </div>
+                <h3 class="font-semibold text-sm mb-1">Email</h3>
+                <span class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-terracotta transition">rakshithakr31@gmail.com</span>
+            </a>
+
+            <a href="tel:+919353528059" class="p-5 rounded-2xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/5 hover:border-sage/30 transition group text-center">
+                <div class="w-10 h-10 rounded-xl bg-sage/10 dark:bg-sage/20 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="phone" class="w-5 h-5 text-sage"></i>
+                </div>
+                <h3 class="font-semibold text-sm mb-1">Phone</h3>
+                <span class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-sage transition">+91 9353528059</span>
+            </a>
+
+            <a href="https://github.com/meow-blips" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/5 hover:border-gray-400/30 transition group text-center">
+                <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/15 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="github" class="w-5 h-5 text-gray-800 dark:text-white"></i>
+                </div>
+                <h3 class="font-semibold text-sm mb-1">GitHub</h3>
+                <span class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-white transition">meow-blips</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/k-r-rakshitha-7b1737329/" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/5 hover:border-blue-400/30 transition group text-center">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-500/25 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="linkedin" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="font-semibold text-sm mb-1">LinkedIn</h3>
+                <span class="text-xs text-gray-500 dark:text-gray-400 group-hover:text-blue-400 transition">K.R.Rakshitha</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('ig-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+
+    const composed = `Hi! I'm ${name} (${email}).\n\nSubject: ${subject}\n\n${message}`;
+
+    navigator.clipboard.writeText(composed).then(function() {
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('ig-form').reset();
+        window.open('https://ig.me/m/artseeker13', '_blank');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }).catch(function() {
+        window.open('https://ig.me/m/artseeker13', '_blank');
+    });
+});
+</script>
+{% endblock %}

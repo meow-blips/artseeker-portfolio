@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ─── Hero / Bio ────────────────────────────────────────── -->
+<section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Photo gallery -->
+            <div class="flex justify-center lg:justify-start">
+                <div class="relative">
+                    <div class="w-72 h-80 md:w-96 md:h-[28rem] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/10">
+                        <img src="/static/images/profile-portrait.png" alt="K.R.Rakshitha"
+                             class="w-full h-full object-cover object-top" />
+                    </div>
+                    <!-- Floating accent photos -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white dark:ring-warm-900 rotate-6 hover:rotate-0 transition-transform duration-300">
+                        <img src="/static/images/profile-flower.png" alt="Rakshitha" class="w-full h-full object-cover object-top" />
+                    </div>
+                    <div class="absolute -top-4 -left-4 w-24 h-24 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white dark:ring-warm-900 -rotate-6 hover:rotate-0 transition-transform duration-300 hidden md:block">
+                        <img src="/static/images/profile-cafe.png" alt="Rakshitha" class="w-full h-full object-cover object-top" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio text -->
+            <div class="space-y-6">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-wider text-terracotta dark:text-terracotta-light mb-2">About Me</p>
+                    <h1 class="font-display text-4xl md:text-5xl font-bold leading-tight">
+                        Engineering Student &<br>
+                        <span class="text-terracotta dark:text-terracotta-light">Aspiring Full-Stack Developer</span>
+                    </h1>
+                </div>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                    I am a second-year <strong class="text-gray-900 dark:text-white">Information Science & Engineering</strong>
+                    student currently in my 4th semester at the
+                    <strong class="text-gray-900 dark:text-white">Bangalore Institute of Technology</strong>.
+                    My journey in tech is driven by a fascination with how code can bridge the gap between
+                    complex logic and beautiful, user-centric design.
+                </p>
+
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    When I'm not in the classroom, I'm usually found with a crochet hook in hand or a
+                    stylus in my art kit. I believe that the precision required for engineering and the
+                    creativity needed for art are two sides of the same coin. This dual passion fuels my
+                    goal of becoming a Full-Stack Web Developer, where I can build robust systems that are
+                    as aesthetically pleasing as they are functional.
+                </p>
+
+                <div class="flex gap-3 pt-2">
+                    <a href="/gallery"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-terracotta dark:bg-terracotta-light text-white rounded-xl font-semibold text-sm hover:shadow-lg transition-all">
+                        See My Work
+                    </a>
+                    <a href="/contact"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-gray-300 dark:border-white/20 rounded-xl font-semibold text-sm hover:border-terracotta dark:hover:border-terracotta transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Technical Toolkit — Skill Chips ───────────────────── -->
+<section class="py-20 bg-white/50 dark:bg-warm-950/30">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-4">Technical Toolkit</h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-lg mx-auto">
+            The languages, tools, and mediums I use to bring ideas to life.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Languages & Core Tech -->
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-terracotta/10 dark:bg-terracotta/20 flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-5 h-5 text-terracotta dark:text-terracotta-light"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold">Languages & Core Tech</h3>
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Programming</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    {% for name, emoji in [("Python", "🐍"), ("Java", "☕"), ("Advanced Java", "🔷"), ("C++", "⚡"), ("C", "🔧")] %}
+                    <span class="skill-chip skill-chip-code">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Web Fundamentals</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    {% for name, emoji in [("HTML5", "📄"), ("CSS3", "🎨"), ("JavaScript", "⚡"), ("Tailwind CSS", "💨"), ("React", "⚛️")] %}
+                    <span class="skill-chip skill-chip-code">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Frameworks & Tools</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    {% for name, emoji in [("FastAPI", "⚙️"), ("Git", "📦"), ("SQL", "🗃️"), ("VS Code", "💻")] %}
+                    <span class="skill-chip skill-chip-code">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Design</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for name, emoji in [("UI/UX Principles", "✨"), ("Responsive Design", "📱"), ("Figma", "🎯")] %}
+                    <span class="skill-chip skill-chip-code">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Creative Stack -->
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-sage/10 dark:bg-sage/20 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-sage"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold">Creative Stack</h3>
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Drawing & Painting</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    {% for name, emoji in [("Alcohol Markers", "🖊️"), ("Colored Pencils", "✏️"), ("Graphite", "✒️"), ("Gouache", "💧"), ("Ink Pens", "🖋️"), ("White Gel Pen", "⚪")] %}
+                    <span class="skill-chip skill-chip-creative">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Crochet</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    {% for name, emoji in [("3.5mm–8.0mm Hooks", "🪝"), ("Chenille Yarn", "🧶"), ("Cotton Yarn", "🧵"), ("Amigurumi", "🐻"), ("Safety Eyes", "👀"), ("Polyfill", "☁️")] %}
+                    <span class="skill-chip skill-chip-creative">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Brands I Use</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for name, emoji in [("Brustro Fineliners", "🖊️"), ("Prismacolor", "🌈"), ("Faber-Castell", "✏️"), ("TouchCool Markers", "🎨"), ("Hobby Store Yarn", "🧶")] %}
+                    <span class="skill-chip skill-chip-creative">{{ emoji }} {{ name }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── My Journey — Timeline ─────────────────────────────── -->
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-16">My Journey</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#c9705d"></div>
+                <div class="timeline-content">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-terracotta dark:text-terracotta-light">2026 — Present</span>
+                    <h3 class="font-display text-xl font-bold mt-1">4th Semester, ISE @ BIT Bangalore</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                        Diving deep into Data Structures, Algorithms, Advanced Java, and Web Development.
+                        Building real-world projects like this portfolio to bridge theory and practice.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#81b29a"></div>
+                <div class="timeline-content">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sage">2024</span>
+                    <h3 class="font-display text-xl font-bold mt-1">Started Engineering @ BIT</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                        Began my Information Science & Engineering degree. Fell in love with
+                        programming, problem-solving, and the power of building things from scratch.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#b8a9c9"></div>
+                <div class="timeline-content">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-lavender dark:text-lavender-light">2022 — Present</span>
+                    <h3 class="font-display text-xl font-bold mt-1">Crochet Journey</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                        Picked up a hook and never looked back. Started with simple pieces,
+                        now creating amigurumi characters and wearable art with chenille and cotton yarn.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#6b9ac4"></div>
+                <div class="timeline-content">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-400">2020 — Present</span>
+                    <h3 class="font-display text-xl font-bold mt-1">Art & Illustration</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                        What started as doodling anime characters grew into a serious practice —
+                        from Demon Slayer fan art to botanical illustrations, gouache paintings,
+                        and architectural ink studies.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#d4956a"></div>
+                <div class="timeline-content">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-amber-500">2019</span>
+                    <h3 class="font-display text-xl font-bold mt-1">First Line of Code</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                        Wrote my first "Hello, World!" in Python. The beginning of an obsession
+                        with building things that live on the internet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── How I Built This ──────────────────────────────────── -->
+<section class="py-20 bg-gradient-to-br from-terracotta/5 via-transparent to-sage/5 dark:from-terracotta/10 dark:to-sage/10">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="rounded-3xl bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/5 shadow-xl overflow-hidden">
+            <!-- Header -->
+            <div class="px-8 py-6 bg-gradient-to-r from-terracotta/10 to-sage/10 dark:from-terracotta/20 dark:to-sage/20 border-b border-gray-200/50 dark:border-white/5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-terracotta/20 dark:bg-terracotta/30 flex items-center justify-center">
+                        <i data-lucide="wrench" class="w-5 h-5 text-terracotta dark:text-terracotta-light"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display text-2xl font-bold">How I Built This</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Skills developed during this portfolio project</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills grid -->
+            <div class="p-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-terracotta/10 dark:bg-terracotta/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="smartphone" class="w-4 h-4 text-terracotta dark:text-terracotta-light"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm">Responsive Web Design</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-10">
+                        Ensuring galleries look seamless on everything from a mobile phone to a 4K monitor using CSS Grid and Tailwind's responsive utilities.
+                    </p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-sage/10 dark:bg-sage/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="filter" class="w-4 h-4 text-sage"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm">State Management & Filtering</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-10">
+                        Implementing React state to toggle between Drawings and Crochet without reloading the page.
+                    </p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-lavender/10 dark:bg-lavender/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="maximize-2" class="w-4 h-4 text-lavender dark:text-lavender-light"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm">Interactive UI/UX</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-10">
+                        Crafting custom Modals and Lightboxes to give artwork the high-definition spotlight it deserves.
+                    </p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="image" class="w-4 h-4 text-amber-500"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm">Asset Optimization</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-10">
+                        Handling high-resolution images of physical crafts for fast loading without sacrificing quality.
+                    </p>
+                </div>
+
+                <div class="space-y-2 sm:col-span-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="boxes" class="w-4 h-4 text-blue-500"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm">Frontend Architecture</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-10">
+                        Organizing code into reusable React components (GalleryCard, Modal, FilterTabs) to maintain a clean, scalable codebase — powered by a FastAPI backend with a JSON API.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tech bar -->
+            <div class="px-8 py-4 bg-gray-50 dark:bg-white/[0.02] border-t border-gray-200/50 dark:border-white/5 flex flex-wrap items-center gap-2">
+                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 mr-1">Built with:</span>
+                {% for tech in ["FastAPI", "Python", "React", "Tailwind CSS", "Jinja2", "Lucide Icons"] %}
+                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-white/5 border border-gray-200/50 dark:border-white/10 text-xs font-medium text-gray-700 dark:text-gray-300">{{ tech }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
